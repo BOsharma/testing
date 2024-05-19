@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Table</title>
+</head>
+
+<body>
+  <input type="text" id="nameInput" placeholder="Name">
+  <input type="text" id="ageInput" placeholder="Age">
+  <input type="text" id="cityInput" placeholder="City">
+  <button onclick="addData()">Add Data</button>
+  <button>Delete </button>
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="dataBody">
+    </tbody>
+  </table>
+
+  <script>
+
+    // Array to store data
+    var data = [];
+
+    function addData() {
+      // Get input values
+      var name = document.getElementById('nameInput').value;
+      var age = document.getElementById('ageInput').value;
+      var city = document.getElementById('cityInput').value;
+
+      // If input fields are not empty
+      if (name.trim() !== '' && age.trim() !== '' && city.trim() !== '') {
+        // Create new data object
+        var newData = {
+          name: name,
+          age: age,
+          city: city
+        }
+
+        // Add new data to the array
+        data.push(newData);
+
+        // Render the table
+        renderTable();
+
+        // Clear input fields
+        document.getElementById('nameInput').value = '';
+        document.getElementById('ageInput').value = '';
+        document.getElementById('cityInput').value = '';
+      } else {
+        alert("enter data");
+      };
+    }
+
+    function editData(index) {
+      // Get data object at specified index
+      var currentData = data[index];
+
+      // Fill input fields with current data
+      document.getElementById('nameInput').value = currentData.name;
+      document.getElementById('ageInput').value = currentData.age;
+      document.getElementById('cityInput').value = currentData.city;
+
+      // Remove the row from the table
+      data.splice(index, 1);
+
+      // Render the table without the row
+      renderTable();
+    }
+
+    function renderTable() {
+      // Get table body element
+      var tbody = document.getElementById('dataBody');
+
+      // Clear previous content
+      tbody.innerHTML = '';
+
+      // Loop through data array and create table rows
+      data.forEach(function (item, index) {
+        var row = document.createElement('tr');
+
+        // Create table cells for each property
+        var nameCell = document.createElement('td');
+        nameCell.textContent = item.name;
+        row.appendChild(nameCell);
+
+        var ageCell = document.createElement('td');
+        ageCell.textContent = item.age;
+        row.appendChild(ageCell);
+
+        var cityCell = document.createElement('td');
+        cityCell.textContent = item.city;
+        row.appendChild(cityCell);
+
+        // Create edit button
+        var editCell = document.createElement('td');
+        var editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        // Call editData function with index when button is clicked
+        editButton.onclick = function () {
+          editData(index);
+        };
+        editCell.appendChild(editButton);
+        row.appendChild(editCell);
+
+        // Append row to table body
+        tbody.appendChild(row);
+      });
+    }
+
+
+
+  </script>
+</body>
+
+</html>

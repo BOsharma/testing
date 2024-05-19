@@ -1,0 +1,24 @@
+body {
+  background-image: url("../img/hero-bg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+  opacity: 1;
+}
+
+.bg-image {
+  background-image: url("../img/hero-bg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+  opacity: 1;
+}
+
+.text1 {
+  padding-top: 350px;
+  letter-spacing: 0.7rem;
+}

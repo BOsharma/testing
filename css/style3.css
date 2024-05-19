@@ -1,0 +1,57 @@
+body {
+  background-image: url("../img/tree.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+  opacity: 1;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.text1 {
+  letter-spacing: 0.7rem;
+}
+
+.text2 {
+  padding-top: 300px;
+}
+
+h1 {
+  letter-spacing: 0.8rem;
+}
+
+.text3 {
+  letter-spacing: 0.8rem;
+}
+
+.nav {
+  font-size: 35px;
+  position: fixed;
+  padding-left: 430px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.services-item{
+  margin-bottom: 10px;
+}
+@media(max-width: 450px) {
+  .text2 {
+    padding-top: 200px;
+    font-size: 20px;
+
+  }
+
+  .nav {
+    font-size: 20px;
+    background-color: transparent;
+    justify-content: end;
+    position:static;
+    display: block;
+  }
+  .services-item{
+    margin-bottom: 10px;
+  }
+}

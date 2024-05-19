@@ -1,0 +1,19 @@
+body {
+  font-family: 'Franklin Gothic Medium', ;
+  background-image: url(../img/header-background.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.text-container {
+  padding-top: 450px;
+  margin-bottom: 150px;
+}
+
+.text-container-1 {
+  padding-top: 100px;
+}
